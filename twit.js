@@ -7,3 +7,15 @@ var bot = new Twit({
     access_token_secret: process.env.LEARNINGBOT_ACCESS_TOKEN_SECRET,
     timeout_ms: 60 *1000
 });
+
+bot.post('statuses/update',
+    {
+        status: 'hello world!'
+    }, 
+    function(err, data, response) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(data.text + ' was tweeted.');
+        }
+    });
